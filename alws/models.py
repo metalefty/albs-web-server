@@ -39,6 +39,7 @@ __all__ = [
     "UserOauthAccount",
     "UserRole",
     "Team",
+    "TestRepository",
 ]
 
 
@@ -967,6 +968,14 @@ class TestTaskArtifact(Base):
     test_task = relationship("TestTask", back_populates="artifacts")
     name = sqlalchemy.Column(sqlalchemy.Text, nullable=False)
     href = sqlalchemy.Column(sqlalchemy.Text, nullable=False)
+
+
+class TestRepository(Base):
+    __tablename__ = "test_repositories"
+    id = sqlalchemy.Column(sqlalchemy.Integer, primary_key=True)
+    name = sqlalchemy.Column(sqlalchemy.Text, nullable=False, unique=True)
+    url = sqlalchemy.Column(sqlalchemy.Text, nullable=False, unique=True)
+    tests_dir = sqlalchemy.Column(sqlalchemy.Text, nullable=False)
 
 
 class Release(PermissionsMixin, TeamMixin, TimeMixin, Base):
