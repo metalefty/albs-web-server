@@ -100,7 +100,7 @@ services:
       - "./tests:/code/tests"
       - "./scripts:/code/scripts"
       - "./reference_data:/code/reference_data"
-      - "./requirements.txt /code/requirements.txt"
+      - "./requirements.txt:/code/requirements.txt"
     command: bash -c 'source env/bin/activate &&
                       /wait_for_it.sh rabbitmq:5672 &&
                       pip3 install --upgrade pip && 
@@ -121,7 +121,7 @@ services:
       context: .
     volumes:
       - "./alws:/code/alws"
-      - "./requirements.txt /code/requirements.txt"
+      - "./requirements.txt:/code/requirements.txt"
     command: bash -c 'source env/bin/activate &&
                       /wait_for_it.sh rabbitmq:5672 &&
                       pip3 install --upgrade pip && 
