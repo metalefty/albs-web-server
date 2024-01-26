@@ -430,7 +430,7 @@ services:
       - "../alma-tests-cacher/alma_tests_cacher:/code/alma_tests_cacher"
       - "../alma-tests-cacher/alma_tests_cacher.py:/code/alma_tests_cacher.py"
       - "../alma-tests-cacher/requirements.txt:/code/requirements.txt"
-      - "../alma-tests-cacher/vars.yaml:/code/vars.yaml"
+      - "../alma-tests-cacher/tests_cacher.yml:/code/tests_cacher.yml"
     command: "bash -c '/wait_for_it.sh web_server:8000 &&
               source env/bin/activate &&
               pip3 install --upgrade pip &&
